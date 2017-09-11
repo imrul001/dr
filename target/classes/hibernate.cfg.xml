@@ -14,8 +14,8 @@
         <property name="hibernate.connection.pool_size">1</property>
         <property name="hibernate.cache.provider_class">org.hibernate.cache.CacheException</property>
         <property name="hibernate.show_sql">true</property>
-        <property name="hibernate.hbm2ddl.auto">update</property>
-        <mapping class="com.hasan.entity.UserDetails"/>
-        <mapping class="com.hasan.entity.Vehicle"/>
+        <property name="hibernate.hbm2ddl.auto">create</property>
+
+        <mapping class="dr.hasan.clientRegistration.entity.Client"/>
     </session-factory>
 </hibernate-configuration>
