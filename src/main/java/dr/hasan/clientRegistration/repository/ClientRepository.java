@@ -20,11 +20,13 @@ public class ClientRepository extends HibernatePersistence {
             session.save(client);
             session.getTransaction().commit();
             newClient = client;
+//            session.flush();
+//            session.close();
+//            super.shutdown();
         } catch (HibernateException e) {
             e.printStackTrace();
         }
-        session.close();
-        super.shutdown();
+        session.clear();
         return newClient;
     }
 }

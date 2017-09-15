@@ -20,7 +20,7 @@ public class Client {
     private String email;
 
     @Column(name = "client_date_of_birth")
-    private Date dateOfBirth;
+    private String dateOfBirth;
 
     @Column(name = "client_password")
     private String password;
@@ -50,11 +50,11 @@ public class Client {
         this.email = email;
     }
 
-    public Date getDateOfBirth() {
+    public String getDateOfBirth() {
         return dateOfBirth;
     }
 
-    public void setDateOfBirth(Date dateOfBirth) {
+    public void setDateOfBirth(String dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
     }
 

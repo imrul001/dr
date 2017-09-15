@@ -1,5 +1,7 @@
 package dr.hasan.clientRegistration.viewmodel;
 
+import org.codehaus.jackson.annotate.JsonIgnoreProperties;
+
 import java.util.Date;
 
 /**
@@ -9,11 +11,24 @@ public class ClientDTO {
 
     private long id;
     private String email;
-    private Date dateOfBirth;
+    private String dateOfBirth;
     private String password;
     private String name;
     private int gender;
     private int active;
+
+    public ClientDTO() {
+    }
+
+    public ClientDTO(long id, String email, String dateOfBirth, String password, String name, int gender, int active) {
+        this.id = id;
+        this.email = email;
+        this.dateOfBirth = dateOfBirth;
+        this.password = password;
+        this.name = name;
+        this.gender = gender;
+        this.active = active;
+    }
 
     public long getId() {
         return id;
@@ -31,11 +46,11 @@ public class ClientDTO {
         this.email = email;
     }
 
-    public Date getDateOfBirth() {
+    public String getDateOfBirth() {
         return dateOfBirth;
     }
 
-    public void setDateOfBirth(Date dateOfBirth) {
+    public void setDateOfBirth(String dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
     }
 
