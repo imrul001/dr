@@ -26,6 +26,11 @@ public class ClientRegistrationController {
         return "clientRegistrationForm";
     }
 
+    @RequestMapping(value = "/search", method = RequestMethod.GET)
+    public String showDynamicSearchPage(){
+        return "dynamicSearch";
+    }
+
     @RequestMapping(value = "/do/client/registration", method = RequestMethod.POST)
     public @ResponseBody Map<String, Object> doClientRegistration(@RequestBody ClientDTO clientDTO){
         Map<String, Object> response = new HashMap<String, Object>();

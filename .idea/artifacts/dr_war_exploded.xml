@@ -33,6 +33,7 @@
           <element id="library" level="project" name="Maven: org.apache.poi:poi:3.9" />
           <element id="library" level="project" name="Maven: org.apache.poi:poi-ooxml-schemas:3.9" />
           <element id="library" level="project" name="Maven: org.apache.xmlbeans:xmlbeans:2.3.0" />
+          <element id="library" level="project" name="Maven: javax.servlet:jstl:1.2" />
           <element id="library" level="project" name="Maven: com.microsoft.sqlserver:mssql-jdbc:6.1.0.jre8" />
           <element id="library" level="project" name="Maven: com.microsoft.azure:azure-keyvault:0.9.3" />
           <element id="library" level="project" name="Maven: com.microsoft.azure:azure-core:0.9.3" />
