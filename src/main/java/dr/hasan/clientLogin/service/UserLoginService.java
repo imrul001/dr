@@ -1,8 +1,6 @@
 package dr.hasan.clientLogin.service;
 
 import dr.hasan.clientRegistration.service.ClientRegistrationService;
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -24,8 +22,6 @@ public class UserLoginService {
     }
 
     public String getUserName() {
-        Log log = LogFactory.getLog(UserLoginService.class);
-        log.info("before returning "+log.getClass()+" the username");
         return username;
     }
 }
