@@ -17,5 +17,6 @@
         <property name="hibernate.hbm2ddl.auto">create</property>
 
         <mapping class="dr.hasan.clientRegistration.entity.Client"/>
+        <mapping class="dr.hasan.clientLogin.entity.UserLogin"/>
     </session-factory>
 </hibernate-configuration>

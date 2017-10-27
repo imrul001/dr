@@ -2,8 +2,10 @@ package dr.hasan.clientRegistration.repository;
 
 import dr.hasan.clientRegistration.entity.Client;
 import dr.hasan.persistence.HibernatePersistence;
+import org.hibernate.Criteria;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
+import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Repository;
 
 /**
@@ -28,5 +30,13 @@ public class ClientRepository extends HibernatePersistence {
         }
         session.clear();
         return newClient;
+    }
+
+    public Client getClient(String email, String password){
+        Session session = super.getSessionFactory().openSession();
+        Criteria criteria = session.createCriteria(Client.class);
+        criteria.add(Restrictions.eq("email", email))
+                .add(Restrictions.eq("password", password));
+        return (Client) criteria.uniqueResult();
     }
 }

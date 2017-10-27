@@ -1,0 +1,26 @@
+<html>
+<head>
+    <script type="text/javascript" src="js/angular.min.js"></script>
+    <script type="text/javascript">
+        var myapp = angular.module("myapp", []);
+        myapp.controller('myAppController', function ($scope) {
+            $scope.showTextInput = function (element) {
+
+            }
+        })
+    </script>
+</head>
+<body ng-app="myapp" ng-controller="myAppController">
+    <h1>Angular Test App</h1>
+    <div>
+        <p ng-model="para">Hello! whats up</p>
+        <input ng-show="myVar" type="" ng-bind="para">
+    </div>
+    <div>
+        <input type="text" ng-model="myID" name="myID"/>
+    </div>
+    <div>
+        <p ng-bind="myID"></p>
+    </div>
+</body>
+</html>

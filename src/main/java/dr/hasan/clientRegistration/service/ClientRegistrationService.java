@@ -1,5 +1,6 @@
 package dr.hasan.clientRegistration.service;
 
+import dr.hasan.clientLogin.viewmodel.UserLoginDTO;
 import dr.hasan.clientRegistration.entity.Client;
 import dr.hasan.clientRegistration.repository.ClientRepository;
 import dr.hasan.clientRegistration.viewmodel.ClientDTO;
@@ -52,4 +53,11 @@ public class ClientRegistrationService {
         return client;
     }
 
+    public boolean isExist(String email, String password){
+        boolean flag = false;
+        if(clientRepository.getClient(email, password)!=null){
+            return true;
+        }
+        return false;
+    }
 }

@@ -20,7 +20,7 @@ public class ClientRegistrationController {
     @Autowired
     private ClientRegistrationService registrationService;
 
-    @RequestMapping(value = "/", method = RequestMethod.GET)
+    @RequestMapping(value = "/registration", method = RequestMethod.GET)
     public String showIndex(Model model){
         model.addAttribute("clientDTO", new ClientDTO());
         return "clientRegistrationForm";
