@@ -1,5 +1,6 @@
 package dr.hasan.clientLogin.controller;
 
+import dr.hasan.aspect.userlogin.LogginAroundLoginBusiness;
 import dr.hasan.aspect.userlogin.LogginBeforeUserLoginBusiness;
 import dr.hasan.clientLogin.service.UserLoginService;
 import dr.hasan.clientLogin.viewmodel.UserLoginDTO;
@@ -23,7 +24,7 @@ public class LoginController {
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String viewLogInPage(Model model){
-        LogginBeforeUserLoginBusiness loginBusiness = new LogginBeforeUserLoginBusiness();
+        LogginAroundLoginBusiness loginBusiness = new LogginAroundLoginBusiness();
 
         ProxyFactoryBean proxyFactoryBean = new ProxyFactoryBean();
         proxyFactoryBean.setTarget(userLoginService);
