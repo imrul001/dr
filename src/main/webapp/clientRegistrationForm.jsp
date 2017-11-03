@@ -10,6 +10,7 @@
 <html>
 <head>
     <link rel="stylesheet" href="css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="css/my.style.css"/>
     <script type="text/javascript" src="js/angular.min.js"></script>
     <script type="text/javascript">
         var drApp = angular.module("drApp", []);
@@ -50,11 +51,11 @@
 <body>
 <div class="container" ng-app="drApp" ng-controller="clientRegFormController">
     <div class="row-fluid">
-        <form class="form-horizontal" style="margin: 0 auto; width:70%;">
+        <form class="form-horizontal myLoginForm">
             <fieldset>
 
                 <!-- Form Name -->
-                <legend>Form Name</legend>
+                <legend class="myFormHeader">User Registration Form</legend>
 
                 <!-- Text input-->
                 <div class="control-group">
@@ -131,8 +132,10 @@
                         <button id="submit" ng-click="submitForm()" name="submit" class="btn btn-primary">Sign Up</button>
                     </div>
                 </div>
-
             </fieldset>
+            <p class="myFormFooterLink">
+                Already Have an Account? <a href="/">Click Here to Login</a>
+            </p>
         </form>
     </div>
 </div>

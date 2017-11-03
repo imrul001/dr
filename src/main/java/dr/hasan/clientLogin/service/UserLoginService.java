@@ -17,7 +17,7 @@ public class UserLoginService {
     @Autowired
     private ClientRegistrationService registrationService;
 
-    public boolean isValiUser(String email, String password){
+    public boolean isValidUser(String email, String password){
         return registrationService.isExist(email, password);
     }
 

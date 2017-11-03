@@ -1,3 +1,4 @@
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%--
   Created by IntelliJ IDEA.
   User: Imrul
@@ -8,14 +9,52 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Title</title>
+    <title>My Doctor App.</title>
+    <link rel="stylesheet" href="css/bootstrap.min1.css"/>
+    <link rel="stylesheet" href="css/my.style.css"/>
 </head>
 <body>
-    <h1>
-        User Login Form edit
-    </h1>
-    <div>
-        <p>hello ${username}</p>
+<div class="container">
+    <div class="row-fluid">
+        <form class="form-horizontal myLoginForm" method="post" action="/login">
+            <fieldset>
+
+                <!-- Form Name -->
+                <legend class="myFormHeader">User Login Form</legend>
+
+                <!-- Text input-->
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="textinput">User Email</label>
+                    <div class="col-md-4">
+                        <input id="textinput" name="email" type="text" placeholder="Enter your email" class="form-control input-md" required="">
+
+                    </div>
+                </div>
+
+                <!-- Password input-->
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="passwordinput">Password</label>
+                    <div class="col-md-4">
+                        <input id="passwordinput" name="password" type="password" placeholder="Enter your password" class="form-control input-md" required="">
+
+                    </div>
+                </div>
+
+                <!-- Button -->
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="singlebutton"></label>
+                    <div class="col-md-4">
+                        <button id="singlebutton" name="singlebutton" class="btn btn-primary">Login</button>
+                    </div>
+                </div>
+
+            </fieldset>
+            <p class="myFormFooterLink">
+                Don't Have an Account? <a href="/userRegistration">Click Here to Register</a>
+            </p>
+        </form>
     </div>
+</div>
+
 </body>
 </html>

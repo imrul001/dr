@@ -1,10 +1,8 @@
 package dr.hasan.clientLogin.controller;
 
-import dr.hasan.aspect.userlogin.LogginAroundLoginBusiness;
-import dr.hasan.aspect.userlogin.LogginBeforeUserLoginBusiness;
 import dr.hasan.clientLogin.service.UserLoginService;
+import dr.hasan.clientLogin.viewmodel.LoginDTO;
 import dr.hasan.clientLogin.viewmodel.UserLoginDTO;
-import org.springframework.aop.framework.ProxyFactoryBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -24,24 +22,16 @@ public class LoginController {
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String viewLogInPage(Model model){
-        LogginAroundLoginBusiness loginBusiness = new LogginAroundLoginBusiness();
-
-        ProxyFactoryBean proxyFactoryBean = new ProxyFactoryBean();
-        proxyFactoryBean.setTarget(userLoginService);
-        proxyFactoryBean.addAdvice(loginBusiness);
-
-        UserLoginService loginService = (UserLoginService) proxyFactoryBean.getObject();
-
-        String username = loginService.getUserName();
-        model.addAttribute("username",username);
         return "login";
     }
 
 
 
     @RequestMapping(value = "/login", method = RequestMethod.POST)
-    public String doLogin(@ModelAttribute("UserLoginDTO") UserLoginDTO userLoginDTO, Model model){
-        if(userLoginService.isValiUser(userLoginDTO.getEmail(), userLoginDTO.getPassword()));
-        return "message";
+    public String doLogin(@ModelAttribute("UserLoginDTO") LoginDTO loginDTO, Model model){
+        if(userLoginService.isValidUser(loginDTO.getEmail(), loginDTO.getPassword())){
+            model.addAttribute("message", "Found User");
+        }
+        return "showmessage";
     }
 }
