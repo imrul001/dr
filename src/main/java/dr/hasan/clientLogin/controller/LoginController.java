@@ -20,7 +20,8 @@ public class LoginController {
     @Autowired
     private UserLoginService userLoginService;
 
-    @RequestMapping(value = "/", method = RequestMethod.GET)
+
+    @RequestMapping(value = {"","/login"}, method = RequestMethod.GET)
     public String viewLogInPage(Model model){
         return "login";
     }

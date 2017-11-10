@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: root
@@ -11,6 +12,7 @@
     <title>Title</title>
 </head>
 <body>
+<c:url value="/j_spring_security_logout" var="logoutUrl" />
     Here is the message ${message}
 </body>
 </html>

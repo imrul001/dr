@@ -1,4 +1,5 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: Imrul
@@ -16,17 +17,24 @@
 <body>
 <div class="container">
     <div class="row-fluid">
-        <form class="form-horizontal myLoginForm" method="post" action="/login">
+        <form class="form-horizontal myLoginForm" method="post" action="/j_spring_security_check">
             <fieldset>
 
                 <!-- Form Name -->
                 <legend class="myFormHeader">User Login Form</legend>
 
                 <!-- Text input-->
+
+                <c:if test="${not empty param.error}">
+                    <div class="form-group">
+                        <p class="myErrorMsg">Login Credential Mismatch</p>
+                    </div>
+                </c:if>
+
                 <div class="form-group">
                     <label class="col-md-4 control-label" for="textinput">User Email</label>
                     <div class="col-md-4">
-                        <input id="textinput" name="email" type="text" placeholder="Enter your email" class="form-control input-md" required="">
+                        <input id="textinput" name="j_username" type="text" placeholder="Enter your email" class="form-control input-md" required="">
 
                     </div>
                 </div>
@@ -35,7 +43,7 @@
                 <div class="form-group">
                     <label class="col-md-4 control-label" for="passwordinput">Password</label>
                     <div class="col-md-4">
-                        <input id="passwordinput" name="password" type="password" placeholder="Enter your password" class="form-control input-md" required="">
+                        <input id="passwordinput" name="j_password" type="password" placeholder="Enter your password" class="form-control input-md" required="">
 
                     </div>
                 </div>

@@ -10,3 +10,8 @@
 .myFormHeader{
     text-align: center;
 }
+.myErrorMsg{
+    text-align: center;
+    font-size: 12px;
+    color: red;
+}
