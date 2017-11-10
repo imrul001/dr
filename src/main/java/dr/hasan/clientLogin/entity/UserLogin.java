@@ -16,7 +16,7 @@ public class UserLogin {
     private long id;
 
     @Column(name = "USER_EMAIL")
-    private long email;
+    private String email;
 
     @Column(name = "Token")
     private String token;
@@ -27,20 +27,21 @@ public class UserLogin {
     @Column(name = "USER_LOGIN_EXPIRE_TIME")
     private Date expireTime;
 
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
     public long getId() {
         return id;
     }
 
     public void setId(long id) {
         this.id = id;
-    }
-
-    public long getEmail() {
-        return email;
-    }
-
-    public void setEmail(long email) {
-        this.email = email;
     }
 
     public String getToken() {

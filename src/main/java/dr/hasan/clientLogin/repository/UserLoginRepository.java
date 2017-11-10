@@ -2,8 +2,10 @@ package dr.hasan.clientLogin.repository;
 
 import dr.hasan.clientLogin.entity.UserLogin;
 import dr.hasan.persistence.HibernatePersistence;
+import org.hibernate.Criteria;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
+import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Repository;
 
 /**
@@ -15,7 +17,12 @@ public class UserLoginRepository extends HibernatePersistence {
     public void save(UserLogin userLogin){
         try {
             Session session = super.getSessionFactory().openSession();
-            session.persist(userLogin);
+            session.beginTransaction();
+            session.save(userLogin);
+            if(!session.getTransaction().wasCommitted()){
+                session.getTransaction().commit();
+            }
+            session.clear();
         }catch (HibernateException e){
             e.printStackTrace();
         }
@@ -37,5 +44,11 @@ public class UserLoginRepository extends HibernatePersistence {
         }catch (HibernateException e){
             e.printStackTrace();
         }
+    }
+
+    public boolean isExist(String email){
+        Session session = super.getSessionFactory().openSession();
+        Criteria criteria  = session.createCriteria(UserLogin.class);
+        return criteria.add(Restrictions.eq("email", email)).uniqueResult() != null;
     }
 }
