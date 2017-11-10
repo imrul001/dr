@@ -1,0 +1,17 @@
+.myLoginForm{
+    margin: 80px auto;
+    width:70%;
+    border: 1px solid #e5e5e5;
+}
+.myFormFooterLink{
+    text-align: center;
+    font-size: 12px;
+}
+.myFormHeader{
+    text-align: center;
+}
+.myErrorMsg{
+    text-align: center;
+    font-size: 12px;
+    color: red;
+}
