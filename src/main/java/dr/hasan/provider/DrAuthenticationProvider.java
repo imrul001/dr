@@ -12,13 +12,19 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.ResourceAccessException;
 
 import java.util.ArrayList;
+import java.util.List;
 
 @Component
 public class DrAuthenticationProvider implements AuthenticationProvider {
+
+    private static final String ROLE_PATIENT = "ROLE_PATIENT";
+    private static final String ROLE_DOCTOR = "ROLE_DOCTOR";
+    private static final String ROLE_ADMIN = "ROLE_ADMIN";
 
     @Autowired
     private UserLoginService loginService;
@@ -32,7 +38,9 @@ public class DrAuthenticationProvider implements AuthenticationProvider {
                 MyResponse response = loginService.getUserLoginAuthenticated(email, password);
                 if(response.getResponseCode() == ResponseCode.OPERATION_SUCCESSFUL.getCode()){
                     UserLogin userLogin = (UserLogin) response.getItems();
-                    return new UsernamePasswordAuthenticationToken(userLogin, userLogin.getToken(), new ArrayList<GrantedAuthority>());
+                    List<GrantedAuthority> authorityList = new ArrayList<GrantedAuthority>();
+                    authorityList.add(new SimpleGrantedAuthority(ROLE_PATIENT));
+                    return new UsernamePasswordAuthenticationToken(userLogin, userLogin.getToken(), authorityList);
                 }else{
                     throw new DrUserStatusException(response.getErrors().get(0));
                 }

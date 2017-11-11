@@ -10,12 +10,15 @@
 
     <http auto-config="true" use-expressions="true" authentication-manager-ref="DrAuthenticationManager" pattern="/**">
         <intercept-url pattern="/admin**" access="ROLE_USER" />
+        <intercept-url pattern="/summary**" access="hasRole('ROLE_PATIENT')"/>
         <form-login
                 login-page="/login.html"
                 default-target-url="/login"
                 always-use-default-target="true"
-                authentication-failure-url="/login.html?error=true"/>
-        <!--/>-->
+                authentication-failure-url="/login.html?error=true"
+                authentication-success-handler-ref="drAuthenticationSuccessHandler"/>
+
+        <logout logout-url="/logout" success-handler-ref="drLogoutSuccessHandler" invalidate-session="true"/>
     </http>
 
 
@@ -25,6 +28,7 @@
     </authentication-manager>
 
     <beans:bean id="drAuthenticationProvider" class="dr.hasan.provider.DrAuthenticationProvider"/>
-
+    <beans:bean id="drAuthenticationSuccessHandler" class="dr.hasan.provider.DrAuthenticationSuccessHandler"/>
+    <beans:bean id="drLogoutSuccessHandler" class="dr.hasan.provider.DrLogoutSuccessHandler"/>
 
 </beans:beans>

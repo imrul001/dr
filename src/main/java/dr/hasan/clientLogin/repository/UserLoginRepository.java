@@ -40,7 +40,10 @@ public class UserLoginRepository extends HibernatePersistence {
     public void delete(UserLogin userLogin){
         try {
             Session session = super.getSessionFactory().openSession();
+            session.beginTransaction();
             session.delete(userLogin);
+            session.getTransaction().commit();
+            session.clear();
         }catch (HibernateException e){
             e.printStackTrace();
         }

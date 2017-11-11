@@ -63,4 +63,14 @@ public class UserLoginService {
         }
         return response;
     }
+
+    public boolean deleteUser(UserLogin userLogin) {
+        boolean flag = false;
+        String email = userLogin.getEmail();
+        userLoginRepository.delete(userLogin);
+        if(!userLoginRepository.isExist(email)){
+            flag = true;
+        }
+        return flag;
+    }
 }
