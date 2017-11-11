@@ -2,7 +2,6 @@ package dr.hasan.clientLogin.controller;
 
 import dr.hasan.clientLogin.service.UserLoginService;
 import dr.hasan.clientLogin.viewmodel.LoginDTO;
-import dr.hasan.clientLogin.viewmodel.UserLoginDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

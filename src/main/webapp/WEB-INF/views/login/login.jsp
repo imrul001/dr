@@ -1,6 +1,5 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%--
   Created by IntelliJ IDEA.
   User: Imrul
@@ -9,20 +8,13 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html>
-<head>
-    <title>My Doctor App.</title>
-    <link rel="stylesheet" href="<c:url value="css/bootstrap.min1.css"/> "/>
-    <link rel="stylesheet" href="css/my.style.css"/>
-</head>
-<body>
 <div class="container">
     <div class="row-fluid">
         <form class="form-horizontal myLoginForm" method="post" action="/j_spring_security_check">
             <fieldset>
 
                 <!-- Form Name -->
-                <legend class="myFormHeader">User Login Form 111</legend>
+                <legend class="myFormHeader">User Login Form</legend>
 
                 <!-- Text input-->
 
@@ -66,6 +58,3 @@
         </form>
     </div>
 </div>
-
-</body>
-</html>
