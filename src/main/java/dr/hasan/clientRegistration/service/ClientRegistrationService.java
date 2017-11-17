@@ -19,7 +19,7 @@ import java.util.Map;
  */
 
 @Service
-@Transactional()
+@Transactional
 public class ClientRegistrationService {
 
     @Autowired
@@ -59,5 +59,9 @@ public class ClientRegistrationService {
             return true;
         }
         return false;
+    }
+
+    public String getName(){
+        return "imrul";
     }
 }
