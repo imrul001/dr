@@ -1,4 +1,4 @@
-package dr.hasan.cases;
+package dr.hasan.casesconversation.controller;
 
 
 import org.springframework.stereotype.Controller;
