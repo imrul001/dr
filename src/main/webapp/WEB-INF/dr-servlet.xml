@@ -27,4 +27,5 @@
         </property>
     </bean>
 
+    <import resource="classpath:beans/spring-context-config.xml"/>
 </beans>
