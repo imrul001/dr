@@ -71,6 +71,10 @@
         class="dr.hasan.clientRegistration.service.ClientRegistrationService">
     </bean>
 
+    <bean id="caseConversationService"
+        class="dr.hasan.casesconversation.service.CaseConversationService">
+    </bean>
+
     <bean id="transactionManager"
         class="org.springframework.orm.hibernate4.HibernateTransactionManager">
         <property name="sessionFactory" ref="sessionFactory"/>

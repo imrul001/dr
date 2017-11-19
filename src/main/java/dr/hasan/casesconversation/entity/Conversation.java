@@ -8,53 +8,60 @@ import java.util.Date;
 @Table(name = "CONVERSATION")
 public class Conversation{
 
-
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "CONVERSATION_ID")
     private long id;
 
+    @Column(name = "CREATED_BY")
+    private long createdBy;
+
     @Column(name = "is_active")
     private char isActive;
 
+    @Column(name = "content")
+    private String content;
 
-    @Column(name = "CASE_ID")
-    private long case_id;
-
-    @Column(name = "PATIENT_STATEMENT")
-    private String patientStatement;
-
-    @Column(name = "DOCTOR_REVIEW")
-    private String doctorReview;
-
-    @Column(name ="ISSUE_DATE")
+    @Column(name ="CREATION_DATE")
     private Date date;
 
     @Column(name = "IMAGE_ID")
     private long image_id;
 
-    public long getCase_id() {
-        return case_id;
+    @ManyToOne
+    @JoinColumn(name = "CASE_HISTORY_ID")
+    private CaseHistory caseHistory;
+
+    public long getId() {
+        return id;
     }
 
-    public void setCase_id(long case_id) {
-        this.case_id = case_id;
+    public void setId(long id) {
+        this.id = id;
     }
 
-    public String getPatientStatement() {
-        return patientStatement;
+    public char getIsActive() {
+        return isActive;
     }
 
-    public void setPatientStatement(String patientStatement) {
-        this.patientStatement = patientStatement;
+    public void setIsActive(char isActive) {
+        this.isActive = isActive;
     }
 
-    public String getDoctorReview() {
-        return doctorReview;
+    public CaseHistory getCaseHistory() {
+        return caseHistory;
     }
 
-    public void setDoctorReview(String doctorReview) {
-        this.doctorReview = doctorReview;
+    public void setCaseHistory(CaseHistory caseHistory) {
+        this.caseHistory = caseHistory;
+    }
+
+    public String getContent() {
+        return content;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
     }
 
     public Date getDate() {

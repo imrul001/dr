@@ -9,11 +9,11 @@ import java.util.List;
 
 @Entity
 @Table(name = "CASE_HISTORY")
-public class Case {
+public class CaseHistory {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "CASE_ID")
+    @Column(name = "CASE_HISTORY_ID")
     private long id;
 
     @Column(name = "is_active")
@@ -22,13 +22,19 @@ public class Case {
     @Column(name = "PATIENT_EMAIL")
     private String patientEmail;
 
+    @Column(name = "PATIENT_ID")
+    private long patientId;
 
-    @Column(name = "DOCTOR_EMAIL")
-    private String doctorEmail;
-
-    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
-    @JoinTable(name="CASE_CONVERSATION", joinColumns = {@JoinColumn(name = "CASE_ID")}, inverseJoinColumns = {@JoinColumn(name="CONVERSATION_ID")})
+    @OneToMany(mappedBy = "caseHistory", cascade = CascadeType.ALL)
     private List<Conversation> conversations;
+
+    public long getPatientId() {
+        return patientId;
+    }
+
+    public void setPatientId(long patientId) {
+        this.patientId = patientId;
+    }
 
     public long getId() {
         return id;
@@ -62,11 +68,4 @@ public class Case {
         this.patientEmail = patientEmail;
     }
 
-    public String getDoctorEmail() {
-        return doctorEmail;
-    }
-
-    public void setDoctorEmail(String doctoerEmail) {
-        this.doctorEmail = doctoerEmail;
-    }
 }
