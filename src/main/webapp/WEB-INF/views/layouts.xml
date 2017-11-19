@@ -5,5 +5,12 @@
 <tiles-definitions>
     <definition name="loginTemplate" template="/WEB-INF/views/common/logintemplate.jsp">
         <put-attribute name="pageTitle" value="My Doctor App. | Login"/>
+        <put-attribute name="header" value="/WEB-INF/views/common/loginheader.jsp"/>
+        <put-attribute name="footer" value="/WEB-INF/views/common/footer.jsp"/>
+    </definition>
+
+    <definition name="loggedInTemplate" template="/WEB-INF/views/common/loggedintemplate.jsp">
+        <put-attribute name="header" value="/WEB-INF/views/common/loggedinheader.jsp"/>
+        <put-attribute name="footer" value="/WEB-INF/views/common/footer.jsp"/>
     </definition>
 </tiles-definitions>

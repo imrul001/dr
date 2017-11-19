@@ -16,4 +16,9 @@ public class CasesController {
         return "summary";
     }
 
+    @RequestMapping(value = "/session/test")
+    public void getSessionTest(HttpServletRequest request){
+        String token = (String) request.getSession().getAttribute("token");
+    }
+
 }

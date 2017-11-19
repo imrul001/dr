@@ -40,10 +40,10 @@ public class UserLoginRepository extends BaseRepository<UserLogin> {
     public void delete(UserLogin userLogin){
         try {
             Session session = getSession();
-            session.beginTransaction();
+//            session.beginTransaction();
             session.delete(userLogin);
-            session.getTransaction().commit();
-            session.clear();
+//            session.getTransaction().commit();
+//            session.clear();
         }catch (HibernateException e){
             e.printStackTrace();
         }

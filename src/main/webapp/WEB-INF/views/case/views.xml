@@ -3,7 +3,7 @@
         "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
         "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
 <tiles-definitions>
-    <definition name="summary" extends="loginTemplate">
+    <definition name="summary" extends="loggedInTemplate">
         <put-attribute name="content" value="/WEB-INF/views/case/summary.jsp"/>
     </definition>
 </tiles-definitions>
