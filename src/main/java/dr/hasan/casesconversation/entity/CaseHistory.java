@@ -25,7 +25,7 @@ public class CaseHistory {
     @Column(name = "PATIENT_ID")
     private long patientId;
 
-    @OneToMany(mappedBy = "caseHistory", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "caseHistory", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private List<Conversation> conversations;
 
     public long getPatientId() {

@@ -32,6 +32,7 @@ public class DrAuthenticationSuccessHandler extends SimpleUrlAuthenticationSucce
             request.getSession().setAttribute("loginTime", userLogin.getLoginTime());
             request.getSession().setAttribute("userLoginId", userLogin.getId());
             request.getSession().setAttribute("token", userLogin.getToken());
+            request.getSession().setAttribute("userLogin", userLogin);
         }
         response.sendRedirect(redirectUrl);
         super.onAuthenticationSuccess(request, response, auth);
