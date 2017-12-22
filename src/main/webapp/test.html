@@ -24,3 +24,67 @@
     </div>
 </body>
 </html>
+
+<html>
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            $(".select1").on("change", function () {
+                var flag = "valid";
+                var selectedValue = $(this).val();
+                $(".select1").not(this).each(function () {
+                    if ($(this).val() == selectedValue) {
+                        flag = "invalid";
+                        return false;
+                    }
+                });
+                alert(flag)
+            })
+
+        })
+    </script>
+</head>
+<body>
+<div id="ruleHolder">
+    <div class="rule">
+        <div>
+            <select class="select1">
+                <option value="100">Accountant</option>
+                <option value="99">Manager</option>
+                <option value="98">Vice Precedent</option>
+                <option value="97">Deputy Manager</option>
+                <option value="96">Managing Director</option>
+            </select>
+        </div>
+    </div>
+    <div class="rule">
+        <div>
+            <select class="select1">
+                <option value="100">Accountant</option>
+                <option value="99">Manager</option>
+                <option value="98">Vice Precedent</option>
+                <option value="97">Deputy Manager</option>
+                <option value="96">Managing Director</option>
+            </select>
+        </div>
+    </div>
+    <div class="rule">
+        <div>
+            <select class="select1">
+                <option value="100">Accountant</option>
+                <option value="99">Manager</option>
+                <option value="98">Vice Precedent</option>
+                <option value="97">Deputy Manager</option>
+                <option value="96">Managing Director</option>
+            </select>
+        </div>
+    </div>
+</div>
+<div>
+    <input id="submitBtn" type="button" value="submit">
+</div>
+
+</body>
+</html>
