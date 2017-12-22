@@ -6,4 +6,9 @@
     <definition name="login" extends="loginTemplate">
         <put-attribute name="content" value="/WEB-INF/views/login/login.jsp"/>
     </definition>
+
+
+    <definition name="testform" extends="loginTemplate">
+        <put-attribute name="content" value="/WEB-INF/views/login/testform.jsp"/>
+    </definition>
 </tiles-definitions>
