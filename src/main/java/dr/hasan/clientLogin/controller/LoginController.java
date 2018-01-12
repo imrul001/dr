@@ -1,9 +1,9 @@
 package dr.hasan.clientLogin.controller;
 
+import dr.hasan.clientLogin.service.PDFBuilderService;
 import dr.hasan.clientLogin.service.UserLoginService;
 import dr.hasan.clientLogin.viewmodel.LoginDTO;
 import dr.hasan.clientLogin.viewmodel.TestFormDto;
-import org.bouncycastle.math.raw.Mod;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -11,6 +11,9 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -23,6 +26,10 @@ public class LoginController {
 
     @Autowired
     private UserLoginService userLoginService;
+
+
+    @Autowired
+    private PDFBuilderService pdfBuilderService;
 
 
 
@@ -60,4 +67,22 @@ public class LoginController {
         }
         return "showmessage";
     }
+
+    @RequestMapping(value = "/download/pdf", method = RequestMethod.POST)
+    public void downloadPdf(HttpServletResponse response){
+        try {
+            byte[] o = pdfBuilderService.buildPdf();
+            response.setContentType("application/pdf");
+            response.setHeader( "Content-Disposition", "inline; filename=test_org_registration.pdf");
+            OutputStream outputStream = response.getOutputStream();
+            outputStream.write(o);
+            outputStream.flush();
+            outputStream.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+
+
 }

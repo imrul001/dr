@@ -92,5 +92,9 @@
         <input type="submit" value="submit"/>
     </div>
 </form:form>
+
+<form action="/download/pdf" method="post">
+    <button id="mybutton" type="submit">Download</button>
+</form>
 </body>
 </html>
