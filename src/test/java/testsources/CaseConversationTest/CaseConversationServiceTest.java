@@ -16,7 +16,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
-@RunWith(SpringJUnit4ClassRunner.class)
+//@RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration("classpath:beans/spring-context-config.xml")
 @TransactionConfiguration(transactionManager="transactionManager", defaultRollback = true)
 public class CaseConversationServiceTest {
@@ -24,7 +24,7 @@ public class CaseConversationServiceTest {
     @Autowired
     private CaseConversationService caseConversationService;
 
-    @Test
+//    @Test
     @Transactional
     public void createCaseConversationServiceTest(){
         Assert.assertEquals(100, caseConversationService.createCaseConversation().getResponseCode());

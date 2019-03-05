@@ -8,5 +8,6 @@ target/
 out/
 *.iml
 bscorporateib/.idea/
-.idea/
+.idea/**
 logs/
+*/.idea/compile.xml

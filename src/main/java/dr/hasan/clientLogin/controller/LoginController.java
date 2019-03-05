@@ -33,12 +33,12 @@ public class LoginController {
 
 
 
-    @RequestMapping(value = {"/login"}, method = RequestMethod.GET)
+    @RequestMapping(value = {"","/login"}, method = RequestMethod.GET)
     public String viewLogInPage(Model model){
         return "login";
     }
 
-    @RequestMapping(value = "", method = RequestMethod.GET)
+    @RequestMapping(value = "/testform", method = RequestMethod.GET)
     public String viewTestForm(Model model){
         TestFormDto testFormDto = new TestFormDto();
         List<Long> longs = new ArrayList<>();
