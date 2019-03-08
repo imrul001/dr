@@ -52,6 +52,6 @@ public class UserLoginRepository extends BaseRepository<UserLogin> {
     public boolean isExist(String email){
         Session session = getSession();
         Criteria criteria  = session.createCriteria(UserLogin.class);
-        return criteria.add(Restrictions.eq("email", email)).uniqueResult() != null;
+        return criteria.add(Restrictions.eq("email", email)).list().size() > 0;
     }
 }

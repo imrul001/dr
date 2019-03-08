@@ -7,24 +7,24 @@ import java.util.Date;
  * Created by Imrul on 10/13/2017.
  */
 @Entity
-@Table(name = "USER_LOGIN")
+@Table(name = "user_login")
 public class UserLogin {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "ID")
+    @Column(name = "id")
     private long id;
 
-    @Column(name = "USER_EMAIL")
+    @Column(name = "user_email")
     private String email;
 
-    @Column(name = "Token")
+    @Column(name = "token")
     private String token;
 
-    @Column(name = "USER_LOGIN_TIME")
+    @Column(name = "user_login_time")
     private Date loginTime;
 
-    @Column(name = "USER_LOGIN_EXPIRE_TIME")
+    @Column(name = "user_login_expire_time")
     private Date expireTime;
 
 
