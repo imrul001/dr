@@ -61,6 +61,10 @@ public class ClientRegistrationService {
         return false;
     }
 
+    public Client getClient(String email, String password){
+        return clientRepository.getClient(email, password);
+    }
+
     public String getName(){
         return "imrul";
     }

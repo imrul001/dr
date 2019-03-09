@@ -27,6 +27,17 @@ public class UserLogin {
     @Column(name = "user_login_expire_time")
     private Date expireTime;
 
+    @Column(name = "client_id")
+    private long clientId;
+
+
+    public long getClientId() {
+        return clientId;
+    }
+
+    public void setClientId(long clientId) {
+        this.clientId = clientId;
+    }
 
     public String getEmail() {
         return email;

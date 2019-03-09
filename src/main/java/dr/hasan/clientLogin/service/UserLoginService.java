@@ -2,6 +2,8 @@ package dr.hasan.clientLogin.service;
 
 import dr.hasan.clientLogin.entity.UserLogin;
 import dr.hasan.clientLogin.repository.UserLoginRepository;
+import dr.hasan.clientRegistration.entity.Client;
+import dr.hasan.clientRegistration.repository.ClientRepository;
 import dr.hasan.clientRegistration.service.ClientRegistrationService;
 import dr.hasan.common.TokenGenerator;
 import dr.hasan.response.MyResponse;
@@ -30,33 +32,40 @@ public class UserLoginService {
     private UserLoginRepository userLoginRepository;
 
 
-    public boolean isValidUser(String email, String password){
+    public boolean isValidUser(String email, String password) {
         return registrationService.isExist(email, password);
     }
 
-    public MyResponse getUserLoginAuthenticated(String email, String password){
+    public Client getClient(String email, String password) {
+        return registrationService.getClient(email, password);
+    }
+
+
+    public MyResponse getUserLoginAuthenticated(String email, String password) {
         MyResponse response = new MyResponse();
         List<String> errors = new ArrayList<String>();
-        if(this.isValidUser(email, password)){
-            if(userLoginRepository.isExist(email)){
+        Client client = this.getClient(email, password);
+        if (client != null) {
+            if (userLoginRepository.isExist(email)) {
                 response.setResponseCode(ResponseCode.INVALID_ARGUMENT.getCode());
                 errors.add(new String("An User of same Email is already Logged in"));
                 response.setErrors(errors);
-            }else{
+            } else {
                 UserLogin userLogin = new UserLogin();
                 userLogin.setEmail(email);
                 userLogin.setToken(TokenGenerator.getToken(10));
                 userLogin.setLoginTime(new Date());
                 userLogin.setExpireTime(new Date());
+                userLogin.setClientId(client.getId());
                 userLoginRepository.save(userLogin);
-                if(userLogin.getId() > 0){
+                if (userLogin.getId() > 0) {
                     response.setItems(userLogin);
                     response.setResponseCode(ResponseCode.OPERATION_SUCCESSFUL.getCode());
-                }else{
+                } else {
                     response.setResponseCode(ResponseCode.DATABASE_ERROR.getCode());
                 }
             }
-        }else{
+        } else {
             response.setResponseCode(ResponseCode.INVALID_ARGUMENT.getCode());
             errors.add(new String("Invalid User Login Credential"));
             response.setErrors(errors);
@@ -68,7 +77,7 @@ public class UserLoginService {
         boolean flag = false;
         String email = userLogin.getEmail();
         userLoginRepository.delete(userLogin);
-        if(!userLoginRepository.isExist(email)){
+        if (!userLoginRepository.isExist(email)) {
             flag = true;
         }
         return flag;

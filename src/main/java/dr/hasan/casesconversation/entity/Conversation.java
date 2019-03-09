@@ -5,32 +5,39 @@ import javax.persistence.*;
 import java.util.Date;
 
 @Entity
-@Table(name = "CONVERSATION")
+@Table(name = "conversation")
 public class Conversation{
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "CONVERSATION_ID")
+    @Column(name = "conversation_id")
     private long id;
 
-    @Column(name = "CREATED_BY")
-    private long createdBy;
+    @Column(name = "created_by")
+    private char createdBy;
 
-    @Column(name = "is_active")
-    private char isActive;
-
-    @Column(name = "content")
+    @Column(name = "text_content")
     private String content;
 
-    @Column(name ="CREATION_DATE")
+    @Column(name ="created_date")
     private Date date;
 
-    @Column(name = "IMAGE_ID")
+    @Column(name = "image_id")
     private long image_id;
 
     @ManyToOne
-    @JoinColumn(name = "CASE_HISTORY_ID")
+    @JoinColumn(name = "case_history_id")
     private CaseHistory caseHistory;
+
+    public Conversation() {
+    }
+
+    public Conversation(char createdBy, String content, Date date, long image_id) {
+        this.createdBy = createdBy;
+        this.content = content;
+        this.date = date;
+        this.image_id = image_id;
+    }
 
     public long getId() {
         return id;
@@ -40,20 +47,12 @@ public class Conversation{
         this.id = id;
     }
 
-    public char getIsActive() {
-        return isActive;
+    public char getCreatedBy() {
+        return createdBy;
     }
 
-    public void setIsActive(char isActive) {
-        this.isActive = isActive;
-    }
-
-    public CaseHistory getCaseHistory() {
-        return caseHistory;
-    }
-
-    public void setCaseHistory(CaseHistory caseHistory) {
-        this.caseHistory = caseHistory;
+    public void setCreatedBy(char createdBy) {
+        this.createdBy = createdBy;
     }
 
     public String getContent() {
@@ -78,5 +77,13 @@ public class Conversation{
 
     public void setImage_id(long image_id) {
         this.image_id = image_id;
+    }
+
+    public CaseHistory getCaseHistory() {
+        return caseHistory;
+    }
+
+    public void setCaseHistory(CaseHistory caseHistory) {
+        this.caseHistory = caseHistory;
     }
 }

@@ -8,32 +8,33 @@ import java.util.List;
 
 
 @Entity
-@Table(name = "CASE_HISTORY")
+@Table(name = "case_history")
 public class CaseHistory {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "CASE_HISTORY_ID")
+    @Column(name = "case_history_id")
     private long id;
 
-    @Column(name = "is_active")
-    private char isActive;
+    @Column(name = "status")
+    private char status ;
 
-    @Column(name = "PATIENT_EMAIL")
-    private String patientEmail;
+    @Column(name = "client_id")
+    private long clientId;
 
-    @Column(name = "PATIENT_ID")
-    private long patientId;
+    @Column(name = "subject")
+    private String subject;
 
-    @OneToMany(mappedBy = "caseHistory", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "caseHistory", cascade = CascadeType.ALL)
     private List<Conversation> conversations;
 
-    public long getPatientId() {
-        return patientId;
+    public CaseHistory() {
     }
 
-    public void setPatientId(long patientId) {
-        this.patientId = patientId;
+    public CaseHistory(char status, long clientId, String subject) {
+        this.status = status;
+        this.clientId = clientId;
+        this.subject = subject;
     }
 
     public long getId() {
@@ -44,12 +45,28 @@ public class CaseHistory {
         this.id = id;
     }
 
-    public char getIsActive() {
-        return isActive;
+    public char getStatus() {
+        return status;
     }
 
-    public void setIsActive(char isActive) {
-        this.isActive = isActive;
+    public void setStatus(char status) {
+        this.status = status;
+    }
+
+    public long getClientId() {
+        return clientId;
+    }
+
+    public void setClientId(long clientId) {
+        this.clientId = clientId;
+    }
+
+    public String getSubject() {
+        return subject;
+    }
+
+    public void setSubject(String subject) {
+        this.subject = subject;
     }
 
     public List<Conversation> getConversations() {
@@ -59,13 +76,4 @@ public class CaseHistory {
     public void setConversations(List<Conversation> conversations) {
         this.conversations = conversations;
     }
-
-    public String getPatientEmail() {
-        return patientEmail;
-    }
-
-    public void setPatientEmail(String patientEmail) {
-        this.patientEmail = patientEmail;
-    }
-
 }

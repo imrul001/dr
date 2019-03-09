@@ -27,4 +27,10 @@ public class CaseHistoryRepository extends BaseRepository<CaseHistory> {
                 .add(Restrictions.eq("isActive", YesNo.YES.getCode()));
         return criteria.list();
     }
+
+    public List<CaseHistory> getCaseHistoryByClientId(long clientId){
+        Criteria criteria = getCriteria();
+        criteria.add(Restrictions.eq("clientId", clientId));
+        return criteria.list();
+    }
 }
