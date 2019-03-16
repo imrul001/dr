@@ -20,19 +20,27 @@
            data-page-size="3">
         <thead>
         <tr>
-            <th data-field="transactionDate" data-sortable="true">Date</th>
-            <th data-field="fromAccount" data-sortable="true">From</th>
-            <th data-field="toAccount" data-sortable="true">To</th>
-            <th data-field="transactionAmount" data-sortable="true">Amount</th>
-            <th data-field="transactionStatus" data-sortable="true">Status</th>
+            <th data-field="clientId" data-sortable="true">Client ID</th>
+            <th data-field="subject" data-sortable="true">Subject</th>
+            <th data-field="caseHistoryId" data-sortable="true">Case History ID</th>
+            <th data-field="status" data-sortable="true">Status</th>
         </tr>
         </thead>
-        <tbody></tbody>
+        <tbody>
+        <c:forEach var="caseHistory" items="${cases}">
+            <tr>
+                <td>${caseHistory.clientId}</td>
+                <td>${caseHistory.subject}</td>
+                <td>${caseHistory.caseHistoryId}</td>
+                <td>${caseHistory.status}</td>
+            </tr>
+        </c:forEach>
+        </tbody>
     </table>
 </div>
 
 <script type="text/javascript">
-    $(document).ready(function(){
+    $(document).ready(function () {
         $("#caseHistoryTable").bootstrapTable({
             onPageChange: function (number, size) {
                 var targetOffset = $("#caseHistoryTable").offset().top - $('#freezedContent').outerHeight();
@@ -45,4 +53,8 @@
 </script>
 
 
-
+<style>
+    .fixed-table-loading{
+        display : none;
+    }
+</style>
