@@ -30,6 +30,7 @@
                 <th data-field="clientId" data-sortable="true">Client ID</th>
                 <th data-field="subject" data-sortable="true">Subject</th>
                 <th data-field="caseHistoryId" data-sortable="true">Case History ID</th>
+                <th data-field="initialDescription" data-sortable="true">Initial Description</th>
                 <th data-field="status" data-sortable="true">Status</th>
             </tr>
             </thead>
@@ -39,6 +40,7 @@
                     <td>${caseHistory.clientId}</td>
                     <td>${caseHistory.subject}</td>
                     <td>${caseHistory.caseHistoryId}</td>
+                    <td>${caseHistory.conversationDTOList.get(0).textContent}</td>
                     <td>${caseHistory.status}</td>
                 </tr>
             </c:forEach>

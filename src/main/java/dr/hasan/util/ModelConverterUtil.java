@@ -4,6 +4,7 @@ import dr.hasan.casesconversation.entity.CaseHistory;
 import dr.hasan.casesconversation.entity.Conversation;
 import dr.hasan.casesconversation.model.CaseHistoryDTO;
 import dr.hasan.casesconversation.model.ConversationDTO;
+import dr.hasan.common.enums.Status;
 import dr.hasan.common.enums.YesNo;
 
 import java.util.ArrayList;
@@ -30,7 +31,7 @@ public class ModelConverterUtil {
                 conversationDTOS.add(conversationDTO);
             });
             CaseHistoryDTO caseHistoryDTO = new CaseHistoryDTO(
-                    p.getClientId(), p.getSubject(), p.getId(), p.getStatus(), conversationDTOS);
+                    p.getClientId(), p.getSubject(), p.getId(), Status.getStatusByCode(p.getStatus()), conversationDTOS);
             caseHistoryDTOS.add(caseHistoryDTO);
         });
         return caseHistoryDTOS;

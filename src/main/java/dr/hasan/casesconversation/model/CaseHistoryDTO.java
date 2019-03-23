@@ -11,7 +11,7 @@ public class CaseHistoryDTO {
     private long clientId;
     private String subject;
     private long caseHistoryId;
-    private char status;
+    private String status;
     private List<ConversationDTO> conversationDTOList;
 
     private String textContent;
@@ -25,7 +25,7 @@ public class CaseHistoryDTO {
         this.textContent = textContent;
     }
 
-    public CaseHistoryDTO(long clientId, String subject, long caseHistoryId, char status, List<ConversationDTO> conversationDTOList) {
+    public CaseHistoryDTO(long clientId, String subject, long caseHistoryId, String status, List<ConversationDTO> conversationDTOList) {
         this.clientId = clientId;
         this.subject = subject;
         this.caseHistoryId = caseHistoryId;
@@ -60,11 +60,11 @@ public class CaseHistoryDTO {
         this.caseHistoryId = caseHistoryId;
     }
 
-    public char getStatus() {
+    public String getStatus() {
         return status;
     }
 
-    public void setStatus(char status) {
+    public void setStatus(String status) {
         this.status = status;
     }
 
