@@ -16,6 +16,7 @@
             </div>
             <div>
                 <ul class="nav navbar-nav navbar-right">
+                    <li><a href="/create/case"><span class="glyphicon glyphicon-comment"></span> Create New</a></li>
                     <li><a href="#" ><span class="glyphicon glyphicon-user"></span> ${email}</a></li>
                     <li><a href="/logout"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
                 </ul>

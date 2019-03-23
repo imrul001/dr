@@ -19,7 +19,7 @@
 <tiles:insertAttribute name="header"/>
 
 <%--main content--%>
-<div style="margin-top: 2%;">
+<div style="margin-top: 7%;">
     <tiles:insertAttribute name="content"/>
 </div>
 

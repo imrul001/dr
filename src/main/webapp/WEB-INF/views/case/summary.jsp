@@ -13,16 +13,19 @@
 
 <div class="container">
     <div class="row">
-        <button type="button" id="caseCreatButton" class="btn btn-primary" href="/create/case">New Case</button>
+        <h2 class="section-header">Case Histories</h2>
+    </div>
+    <div class="row">
+        <hr size="30">
     </div>
     <div class="row">
         <table id="caseHistoryTable" data-classes="table table-hover table-condensed"
                data-striped="true" data-sort-name="transactionDate"
-               data-sort-order="desc"s
+               data-sort-order="desc"
                data-pagination="true"
                data-page-list="[5, 10, 25, 50, 100, ALL]"
-               data-page-size="3">
-            <thead>
+               data-page-size="6">
+            <thead class="mythead">
             <tr>
                 <th data-field="clientId" data-sortable="true">Client ID</th>
                 <th data-field="subject" data-sortable="true">Subject</th>
@@ -42,6 +45,9 @@
             </tbody>
         </table>
     </div>
+    <div class="row">
+        <hr size="30">
+    </div>
 </div>
 
 <script type="text/javascript">
@@ -54,11 +60,6 @@
                 }, 300);
             }
         });
-
-        $("#caseCreatButton").on("click", function () {
-            window.location.href = $(this).attr("href");
-        })
-
     })
 </script>
 
