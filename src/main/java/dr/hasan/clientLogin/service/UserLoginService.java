@@ -82,4 +82,10 @@ public class UserLoginService {
         }
         return flag;
     }
+
+
+    public boolean isExist(UserLogin userLogin){
+        boolean flag = false;
+        return userLoginRepository.isExist(userLogin.getEmail());
+    }
 }

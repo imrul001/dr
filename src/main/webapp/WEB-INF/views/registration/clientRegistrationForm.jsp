@@ -51,7 +51,7 @@
 <%--<body>--%>
 <div class="container" ng-app="drApp" ng-controller="clientRegFormController">
     <div class="row-fluid">
-        <form class="form-horizontal myLoginForm">
+        <form class="form-horizontal myForm">
             <fieldset>
 
                 <!-- Form Name -->

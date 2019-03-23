@@ -70,6 +70,23 @@ public class CaseConversationService {
 
     }
 
+
+    public Response createCaseConversation(CaseHistoryDTO caseHistoryDTO){
+        Response response = new Response();
+        try {
+            CaseHistory caseHistory = ModelConverterUtil.getEntityFromDTO(caseHistoryDTO);
+            caseHistoryRepository.create(caseHistory);
+            response.setResponseCode(ResponseCode.OPERATION_SUCCESSFUL.getCode());
+            response.setResponseMessage("Operation Successful");
+
+        }catch (Exception e){
+            response.setResponseCode(ResponseCode.DATABASE_ERROR.getCode());
+            response.setResponseMessage("error due to :"+e.getMessage());
+        }
+        return response;
+
+    }
+
     public Response createConversation(Conversation conversation){
         Response response = new Response();
         try {

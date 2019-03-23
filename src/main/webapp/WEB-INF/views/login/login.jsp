@@ -10,7 +10,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <div class="container">
     <div class="row-fluid">
-        <form class="form-horizontal myLoginForm" method="post" action="/j_spring_security_check">
+        <form class="form-horizontal myForm" method="post" action="/j_spring_security_check">
             <fieldset>
 
                 <!-- Form Name -->

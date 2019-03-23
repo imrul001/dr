@@ -13,6 +13,7 @@
     <title>My Doctor App.</title>
     <link rel="stylesheet" href= "<c:url value="../../../css/bootstrap.min1.css"></c:url>" type="text/css"/>
     <script type="text/javascript" src="<c:url value="../../../js/jquery.js"></c:url>"></script>
+    <link rel="stylesheet" href="<c:url value="../../../css/my.style.css"></c:url>" type="text/css"/>
 </head>
 <body>
 

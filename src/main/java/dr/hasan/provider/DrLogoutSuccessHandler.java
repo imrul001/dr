@@ -19,9 +19,11 @@ public class DrLogoutSuccessHandler extends SimpleUrlLogoutSuccessHandler {
     @Override
     public void onLogoutSuccess(HttpServletRequest request, HttpServletResponse response, Authentication authentication) throws IOException, ServletException {
         String redirectUrl = "/login?logout";
-        if(authentication != null){
+        if (authentication != null) {
             UserLogin userLogin = (UserLogin) authentication.getPrincipal();
-            boolean isUserDeleted = loginService.deleteUser(userLogin);
+            if (loginService.isExist(userLogin)) {
+                boolean isUserDeleted = loginService.deleteUser(userLogin);
+            }
         }
         request.getSession().invalidate();
         response.sendRedirect(redirectUrl);

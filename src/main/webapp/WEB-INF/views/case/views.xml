@@ -6,4 +6,7 @@
     <definition name="summary" extends="loggedInTemplate">
         <put-attribute name="content" value="/WEB-INF/views/case/summary.jsp"/>
     </definition>
+    <definition name="createcase" extends="loggedInTemplate">
+        <put-attribute name="content" value="/WEB-INF/views/case/create-case.jsp"/>
+    </definition>
 </tiles-definitions>

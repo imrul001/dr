@@ -9,8 +9,9 @@ import dr.hasan.response.ResponseCode;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.List;
@@ -37,5 +38,20 @@ public class CasesController {
     public void getSessionTest(HttpServletRequest request) {
         String token = (String) request.getSession().getAttribute("token");
     }
+
+    @RequestMapping(value = "/create/case")
+    public String getCreateCaseView(){
+        return "createcase";
+    }
+
+
+    @RequestMapping(value = "/do/create/case", method = RequestMethod.POST)
+    public String createCase(@ModelAttribute("caseHistoryDTO") CaseHistoryDTO caseHistoryDTO, HttpServletRequest request){
+        UserLogin userLogin = (UserLogin) request.getSession().getAttribute("userLogin");
+        caseHistoryDTO.setClientId(userLogin.getClientId());
+        caseConversationService.createCaseConversation(caseHistoryDTO);
+        return "redirect:/summary";
+    }
+
 
 }

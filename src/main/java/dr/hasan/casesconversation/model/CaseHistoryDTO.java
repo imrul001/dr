@@ -14,6 +14,17 @@ public class CaseHistoryDTO {
     private char status;
     private List<ConversationDTO> conversationDTOList;
 
+    private String textContent;
+
+
+    public String getTextContent() {
+        return textContent;
+    }
+
+    public void setTextContent(String textContent) {
+        this.textContent = textContent;
+    }
+
     public CaseHistoryDTO(long clientId, String subject, long caseHistoryId, char status, List<ConversationDTO> conversationDTOList) {
         this.clientId = clientId;
         this.subject = subject;
