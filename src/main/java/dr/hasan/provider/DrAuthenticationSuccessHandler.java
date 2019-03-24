@@ -27,7 +27,7 @@ public class DrAuthenticationSuccessHandler extends SimpleUrlAuthenticationSucce
             cookie.getSecure();
             response.addCookie(cookie);
 
-            redirectUrl = "/summary";
+            redirectUrl = "/cases";
             request.getSession().setAttribute("email", userLogin.getEmail());
             request.getSession().setAttribute("loginTime", userLogin.getLoginTime());
             request.getSession().setAttribute("userLoginId", userLogin.getId());

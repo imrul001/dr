@@ -31,6 +31,7 @@
                 <th data-field="subject" data-sortable="true">Subject</th>
                 <th data-field="caseHistoryId" data-sortable="true">Case History ID</th>
                 <th data-field="initialDescription" data-sortable="true">Initial Description</th>
+                <th data-field="detail" data-sortable="true">Detail</th>
                 <th data-field="status" data-sortable="true">Status</th>
             </tr>
             </thead>
@@ -41,6 +42,7 @@
                     <td>${caseHistory.subject}</td>
                     <td>${caseHistory.caseHistoryId}</td>
                     <td>${caseHistory.conversationDTOList.get(0).textContent}</td>
+                    <td><a href="/cases/history/detail/${caseHistory.caseHistoryId}">Detail</a></td>
                     <td>${caseHistory.status}</td>
                 </tr>
             </c:forEach>

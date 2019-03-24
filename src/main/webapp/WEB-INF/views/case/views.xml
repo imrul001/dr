@@ -9,4 +9,7 @@
     <definition name="createcase" extends="loggedInTemplate">
         <put-attribute name="content" value="/WEB-INF/views/case/create-case.jsp"/>
     </definition>
+    <definition name="casedetail" extends="loggedInTemplate">
+        <put-attribute name="content" value="/WEB-INF/views/case/case-detail.jsp"/>
+    </definition>
 </tiles-definitions>
